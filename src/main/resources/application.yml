@@ -8,7 +8,7 @@ spring:
   data:
     mongodb:
       host: ${DB_HOST}
-      port: ${DB_PORT}
+      port: ${DB_PORT}g
       database: ${DB_NAME}
       username: ${DB_USERNAME}
       password: ${DB_PASSWORD}
@@ -53,3 +53,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://docker-db:docker-db-27025@db-course-health:27025/
+      database: db_course
+      authentication-database: admin
+g
