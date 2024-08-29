@@ -7,6 +7,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=docker-db
       - MONGO_INITDB_ROOT_PASSWORD=docker-db-27025
+      - MONGO_INITDB_DATABASE=db_course
     restart: always
     healthcheck:
       test: echo 'db.runCommand({find:"db_course.chanchhaya"}).ok' | mongosh --authenticationDatabase admin --host localhost -u docker-db -p docker-db-27025 admin --quiet | grep -q 1
