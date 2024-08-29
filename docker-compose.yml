@@ -27,7 +27,7 @@ services:
     ports:
       - "7072:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker,dev
+      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
       db-course-health:
         condition: service_healthy
