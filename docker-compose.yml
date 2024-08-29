@@ -1,7 +1,7 @@
 services:
   db-course:
     image: "mongo:7.0.12-rc1-jammy"
-    container_name: "db-course"
+    container_name: "db-course-health"
     ports:
       - "27025:27017"
     environment:
@@ -22,7 +22,7 @@ services:
   api-course:
     build: .
     image: "api-course"
-    container_name: "api-course"
+    container_name: "api-course-health"
     ports:
       - "7071:8080"
     environment:
