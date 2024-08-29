@@ -5,11 +5,11 @@ services:
     ports:
       - "27025:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=mongo-db
-      - MONGO_INITDB_ROOT_PASSWORD=mongo-db-28000
+      - MONGO_INITDB_ROOT_USERNAME=docker-db
+      - MONGO_INITDB_ROOT_PASSWORD=docker-db-27025
     restart: always
     healthcheck:
-      test: echo 'db.runCommand({find:"db_course.chanchhaya"}).ok' | mongosh --authenticationDatabase admin --host localhost -u mongo-db -p mongo-db-28000 admin --quiet | grep -q 1
+      test: echo 'db.runCommand({find:"db_course.chanchhaya"}).ok' | mongosh --authenticationDatabase admin --host localhost -u docker-db -p docker-db-27025 admin --quiet | grep -q 1
       interval: 10s
       timeout: 10s
       retries: 3
@@ -26,7 +26,7 @@ services:
     ports:
       - "7072:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
       db-course:
         condition: service_healthy

@@ -28,3 +28,32 @@ media:
   end-point: ${MEDIA_ENDPOINT}
   #the host that handle show image
   base-uri: ${MEDIA_BASE_URI}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    mongodb:
+      host: localhost
+      port: 27025
+      database: db_course
+      username: docker-db
+      password: docker-db-27025
