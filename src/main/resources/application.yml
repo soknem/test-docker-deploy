@@ -52,8 +52,4 @@ spring:
       on-profile: docker
   data:
     mongodb:
-      host: localhost
-      port: 27025
-      database: db_course
-      username: docker-db
-      password: docker-db-27025
+      uri: mongodb://docker-db:docker-db-27025@db-course-health:27025/

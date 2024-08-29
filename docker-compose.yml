@@ -1,5 +1,5 @@
 services:
-  db-course:
+  db-course-health:
     image: "mongo:7.0.12-rc1-jammy"
     container_name: "db-course-health"
     ports:
