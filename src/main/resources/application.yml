@@ -52,6 +52,6 @@ spring:
       on-profile: docker
   data:
     mongodb:
-      uri: mongodb://docker-db:docker-db-27025@db-course-health:27025/
+      uri: mongodb://dockerdb:docker123@db-course-health:27025/
       database: db_course
       authentication-database: admin

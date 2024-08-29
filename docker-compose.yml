@@ -1,22 +1,22 @@
 services:
-  db-course-health:
+  db-course:
     image: "mongo:7.0.12-rc1-jammy"
-    container_name: "db-course-health"
+    container_name: "db-course"
     ports:
       - "27025:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=docker-db
-      - MONGO_INITDB_ROOT_PASSWORD=docker-db-27025
+      - MONGO_INITDB_ROOT_USERNAME=dockerdb
+      - MONGO_INITDB_ROOT_PASSWORD=docker123
     restart: always
     healthcheck:
-      test: echo 'db.runCommand({find:"db_course.chanchhaya"}).ok' | mongosh --authenticationDatabase admin --host localhost -u docker-db -p docker-db-27025 admin --quiet | grep -q 1
+      test: echo 'db.runCommand({find:"db_course.chanchhaya"}).ok' | mongosh --authenticationDatabase admin --host localhost -u docker-db -p docker123 admin --quiet | grep -q 1
       interval: 10s
       timeout: 10s
       retries: 3
       start_period: 20s
     volumes:
-      - course_mongodb_data_vol:/data/db/
-      - course_mongodb_log_vol:/var/log/mongodb/
+      - course_mongodb_data_vols:/data/db/
+      - course_mongodb_log_vols:/var/log/mongodb/
     networks:
       - course_mongodb_net
   api-course:
@@ -28,7 +28,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     depends_on:
-      db-course-health:
+      db-course:
         condition: service_healthy
     deploy:
       resources:
@@ -44,8 +44,8 @@ services:
       - course_mongodb_net
 
 volumes:
-  course_mongodb_data_vol:
-  course_mongodb_log_vol:
+  course_mongodb_data_vols:
+  course_mongodb_log_vols:
 
 networks:
   course_mongodb_net:
