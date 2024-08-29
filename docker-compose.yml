@@ -29,7 +29,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     depends_on:
-      db-course:
+      db-course-health:
         condition: service_healthy
     deploy:
       resources:
