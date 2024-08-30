@@ -9,7 +9,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=docker123
     restart: always
     healthcheck:
-      test: echo 'db.runCommand({find:"db_course.chanchhaya"}).ok' | mongosh --authenticationDatabase admin --host localhost -u docker-db -p docker123 admin --quiet | grep -q 1
+      test: echo 'db.runCommand({find:"db_course.chanchhaya"}).ok' | mongosh --authenticationDatabase admin --host localhost -u dockerdb -p docker123 admin --quiet | grep -q 1
       interval: 10s
       timeout: 10s
       retries: 3
