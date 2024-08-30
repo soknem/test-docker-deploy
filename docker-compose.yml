@@ -15,8 +15,8 @@ services:
       retries: 3
       start_period: 20s
     volumes:
-      - course_mongodb_data_vols:/data/db/
-      - course_mongodb_log_vols:/var/log/mongodb/
+      - course_mongodb_data_vols1:/data/db/
+      - course_mongodb_log_vols1:/var/log/mongodb/
     networks:
       - course_mongodb_net
   api-course:
@@ -44,8 +44,8 @@ services:
       - course_mongodb_net
 
 volumes:
-  course_mongodb_data_vols:
-  course_mongodb_log_vols:
+  course_mongodb_data_vols1:
+  course_mongodb_log_vols1:
 
 networks:
   course_mongodb_net:
