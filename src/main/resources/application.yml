@@ -17,11 +17,12 @@ spring:
 springdoc:
   swagger-ui:
     path: /
-minio:
-  url: ${MINIO_URL}
-  secret-key: ${MINIO_SECRETE_KEY}
-  bucket-name: ${MINIO_BUCKET}
-  access-key: ${MINIO_ACCESS_KEY}
+#minio:
+#  url: ${MINIO_URL}
+#  secret-key: ${MINIO_SECRETE_KEY}
+#  bucket-name: ${MINIO_BUCKET}
+#  access-key: ${MINIO_ACCESS_KEY}
+
 
 media:
   #media endpoint
@@ -55,3 +56,15 @@ spring:
       uri: mongodb://dockerdb:docker123@db-course-health:27025/
       database: db_course
       authentication-database: admin
+
+#minio:
+#  url: http://68.183.187.158:9000
+#  secret-key: VNre5RbaZyIBteYy2bxujE3jiCJi9uIbWDtbCYq9
+#  bucket-name: product-testing-api-and-file
+#  access-key: MBpTLbpa4UvX9CpIarmI
+#
+#media:
+#  #media endpoint
+#  end-point: /api/v1/medias
+#  #the host that handle show image
+#  base-uri: http://68.183.187.158:7072
